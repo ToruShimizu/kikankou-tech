@@ -10,8 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.13",
     "@astrojs/check": "^0.9.4",
+    "astro": "^4.16.13",
+    "microcms-js-sdk": "^3.1.2",
     "typescript": "^5.7.2"
   }
 }
