@@ -5,6 +5,8 @@ const links = [
 	{ href: '/policy/', text: 'プライバシーポリシー' },
 	{ href: '/contact/', text: '問い合わせ' },
 ]
+const currentPath = Astro.url.pathname
+console.log({ currentPath })
 ---
 
 <nav class="nav-links hidden">
@@ -12,9 +14,13 @@ const links = [
 		{
 			links.map((link) => (
 				<li>
-					<a href={link.href} class="underline md:hover:no-underline">
-						{link.text}
-					</a>
+					{currentPath === link.href ? (
+						<span>{link.text}</span>
+					) : (
+						<a href={link.href} class="underline md:hover:no-underline">
+							{link.text}
+						</a>
+					)}
 				</li>
 			))
 		}
