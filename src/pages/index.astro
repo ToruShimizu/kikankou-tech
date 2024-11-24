@@ -7,7 +7,7 @@ const response = await getBlogs({ filters: 'title[not_equals]プライバシー�
 ---
 
 <Layout title="期間工テックブログ">
-	<main class="mx-auto">
+	<main class="flex-grow mx-auto">
 		<ul class="flex justify-center flex-col gap-8">
 			{
 				response.contents.map((content: any) => (
