@@ -1,0 +1,28 @@
+---
+const links = [
+	{ href: '/', text: 'ホーム' },
+	{ href: '/about/', text: '概要' },
+	{ href: '/policy/', text: 'プライバシーポリシー' },
+	{ href: '/contact/', text: '問い合わせ' },
+]
+---
+
+<nav class="nav-links hidden">
+	<ul class="grid text-center gap-4">
+		{
+			links.map((link) => (
+				<li>
+					<a href={link.href} class="underline md:hover:no-underline">
+						{link.text}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>
+
+<style>
+	.expanded {
+		display: unset;
+	}
+</style>
