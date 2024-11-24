@@ -15,6 +15,9 @@ export type Blog = {
     publishedAt: string
     revisedAt: string
     title: string
+    src: {
+        url: string
+    }
     content: string
 }
 export type BlogResponse = {
