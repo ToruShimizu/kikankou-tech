@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import { getBlogDetail } from '../../library/microcms'
+import { getPagesInfo } from '../../library/microcms'
 
-const blogId = 'policy'
+const blogId = 'privacy-policy'
 
-const blog = await getBlogDetail(blogId as string)
+const blog = await getPagesInfo(blogId as string)
 ---
 
 <Layout title="プライバシーポリシー">

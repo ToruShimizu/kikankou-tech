@@ -38,3 +38,11 @@ export const getBlogDetail = async (contentId: string, queries?: MicroCMSQueries
         queries,
     })
 }
+
+export const getPagesInfo = async (contentId: string, queries?: MicroCMSQueries) => {
+    return await client.getListDetail<Blog>({
+        endpoint: 'pages',
+        contentId,
+        queries,
+    })
+}

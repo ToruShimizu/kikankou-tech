@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Image from 'astro/components/Image.astro'
 
 import { getBlogs } from '../library/microcms'
-const response = await getBlogs({ filters: 'title[not_equals]プライバシーポリシー' })
+const response = await getBlogs()
 ---
 
 <Layout title="期間工テックブログ">
