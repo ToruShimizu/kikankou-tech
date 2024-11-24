@@ -1,18 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Image from 'astro/components/Image.astro'
 
-//microCMS呼び出し
 import { getBlogs } from '../library/microcms'
-const response = await getBlogs({ fields: ['id', 'title'] })
+const response = await getBlogs({ filters: 'title[not_equals]プライバシーポリシー' })
 ---
 
-<Layout title="My first blog with Astro">
-	<main>
-		<ul class="flex justify-center flex-col gap-4">
+<Layout title="期間工テックブログ">
+	<main class="mx-auto">
+		<ul class="flex justify-center flex-col gap-8">
 			{
 				response.contents.map((content: any) => (
 					<li class="text-center">
-						<a href={content.id}>{content.title}</a>
+						<a href={content.id} class="md:hover:opacity-70">
+							<Image src={content.src.url} alt={content.title} width={1200} height={630} class="mb-2" />
+							<span class="text-xl font-semibold">{content.title}</span>
+						</a>
 					</li>
 				))
 			}
@@ -21,7 +24,6 @@ const response = await getBlogs({ fields: ['id', 'title'] })
 </Layout>
 <style>
 	main {
-		margin: auto;
 		padding: 1em;
 		max-width: 60ch;
 	}
