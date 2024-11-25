@@ -13,54 +13,57 @@ const blog = await getPagesInfo(blogId as string)
 			<div set:html={blog.content} />
 		</div>
 	</main>
-</Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
-	.content-wrapper {
-		h2 {
-			margin-top: 2rem;
-			margin-bottom: 1rem;
-			font-weight: bold;
-			font-size: 1.25rem;
+	<style>
+		main {
+			margin: auto;
+			padding: 1em;
+			max-width: 60ch;
 		}
-		h3 {
-			margin-top: 2rem;
-			margin-bottom: 1rem;
-			font-weight: bold;
-			font-size: 1.125rem;
-		}
-		h4 {
-			margin-top: 2rem;
-			margin-bottom: 1rem;
-			font-weight: bold;
-			font-size: 1rem;
-		}
-		p {
-			margin-top: 1.25em;
-			margin-bottom: 1.25em;
-			font-size: 1rem;
-		}
-		ul {
-			list-style-type: disc;
-			padding-left: 1.625em;
-		}
-		li {
-			padding-left: 0.375em;
-			margin-top: 0.5em;
-			margin-bottom: 0.5em;
-		}
-		a {
-			text-decoration: underline;
-			color: #0066c0;
-			&:hover {
-				opacity: 0.7;
-				text-decoration: none;
+		.content-wrapper {
+			h2 {
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-weight: bold;
+				font-size: 1.25rem;
+				background-color: rgb(226 232 240);
+				padding: 4px 0;
+				border-radius: 4px;
+			}
+			h3 {
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-weight: bold;
+				font-size: 1.125rem;
+			}
+			h4 {
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-weight: bold;
+				font-size: 1rem;
+			}
+			p {
+				margin-top: 1.25em;
+				margin-bottom: 1.25em;
+				font-size: 1rem;
+			}
+			ul {
+				list-style-type: disc;
+				padding-left: 1.625em;
+			}
+			li {
+				padding-left: 0.375em;
+				margin-top: 0.5em;
+				margin-bottom: 0.5em;
+			}
+			a {
+				text-decoration: underline;
+				color: #0066c0;
+				&:hover {
+					opacity: 0.7;
+					text-decoration: none;
+				}
 			}
 		}
-	}
-</style>
+	</style>
+</Layout>
