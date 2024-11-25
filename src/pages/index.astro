@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Image from 'astro/components/Image.astro'
 
 import { getBlogs } from '../library/microcms'
+import { convertEmoji } from '../utils/convertEmoji'
 const response = await getBlogs()
 ---
 
@@ -11,10 +12,21 @@ const response = await getBlogs()
 		<ul class="flex justify-center flex-col gap-8">
 			{
 				response.contents.map((content: any) => (
-					<li class="text-center">
-						<a href={content.id} class="md:hover:opacity-70">
-							<Image src={content.src.url} alt={content.title} width={1200} height={630} class="mb-2" />
-							<span class="text-xl font-semibold">{content.title}</span>
+					<li>
+						<a href={content.id} class="md:hover:opacity-70 flex items-center gap-4">
+							<div class="text-5xl">{convertEmoji(content.thumbnail[0])}</div>
+							<div class="px-2 grid gap-1">
+								<span class="text-md font-semibold ">{content.title}</span>
+								<div class="text-xs text-gray-500">
+									<time datetime={new Date(content.publishedAt).toISOString()}>
+										{new Date(content.publishedAt).toLocaleDateString('ja-JP', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</time>
+								</div>
+							</div>
 						</a>
 					</li>
 				))

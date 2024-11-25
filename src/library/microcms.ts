@@ -19,12 +19,14 @@ export type Blog = {
         url: string
     }
     content: string
+    thumbnail: string[]
 }
 export type BlogResponse = {
     totalCount: number
     offset: number
     limit: number
     contents: Blog[]
+    thumbnail: string[]
 }
 
 //APIの呼び出し
