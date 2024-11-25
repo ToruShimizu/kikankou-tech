@@ -10,10 +10,16 @@ import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://kikankou-tech.com',
+    site: 'https://shimit-blog.com',
     output: 'server',
     adapter: cloudflare({
         imageService: 'cloudflare',
     }),
-    integrations: [sitemap(), tailwind(), react()],
+    integrations: [
+        sitemap({
+            filter: (page) => page !== 'https://shimit-blog.com/contact/completed/',
+        }),
+        tailwind(),
+        react(),
+    ],
 })
