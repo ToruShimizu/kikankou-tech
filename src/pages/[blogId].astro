@@ -18,7 +18,7 @@ const blog = await getBlogDetail(blogId as string)
 const date = new Date(blog.updatedAt)
 ---
 
-<Layout title={blog.title}>
+<Layout title={blog.title} description={blog.description}>
 	<main class="flex-grow mx-auto">
 		<div class="grid gap-8 p-1">
 			<div class="text-8xl text-center">{convertEmoji(blog.thumbnail[0])}</div>

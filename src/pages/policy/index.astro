@@ -7,7 +7,7 @@ const blogId = 'privacy-policy'
 const blog = await getPagesInfo(blogId as string)
 ---
 
-<Layout title="プライバシーポリシー">
+<Layout title={blog.title} description={blog.description}>
 	<main>
 		<h1 class="text-xl text-center font-semibold mb-4">{blog.title}</h1>
 		<div class="content-wrapper">

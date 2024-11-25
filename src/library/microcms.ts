@@ -20,6 +20,7 @@ export type Blog = {
     }
     content: string
     thumbnail: string[]
+    description: string
 }
 export type BlogResponse = {
     totalCount: number
@@ -27,6 +28,7 @@ export type BlogResponse = {
     limit: number
     contents: Blog[]
     thumbnail: string[]
+    description: string
 }
 
 //APIの呼び出し

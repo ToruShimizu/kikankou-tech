@@ -5,9 +5,13 @@ import Layout from '../../layouts/Layout.astro'
 const serviceId = import.meta.env.EMAILJS_SERVICE_ID as string
 const templateId = import.meta.env.EMAILJS_TEMPLATE_ID as string
 const publicId = import.meta.env.EMAILJS_PUBLIC_ID as string
+
+const title = 'お問い合わせ'
+const description =
+	'ご質問やご相談がある方は、こちらの問い合わせフォームからお気軽にご連絡ください。迅速に対応させていただきます。'
 ---
 
-<Layout title="お問い合わせ">
+<Layout title={title} description={description}>
 	<div class="flex-grow">
 		<Form client:load serviceId={serviceId} templateId={templateId} publicId={publicId} />
 		<div class="text-center mt-10">
