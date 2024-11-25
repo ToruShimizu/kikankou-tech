@@ -1,7 +1,17 @@
 ---
+import { Form } from '../../components/Form'
 import Layout from '../../layouts/Layout.astro'
+
+const serviceId = import.meta.env.EMAILJS_SERVICE_ID as string
+const templateId = import.meta.env.EMAILJS_TEMPLATE_ID as string
+const publicId = import.meta.env.EMAILJS_PUBLIC_ID as string
 ---
 
 <Layout title="お問い合わせ">
-	<div>お問い合わせ</div>
+	<div class="flex-grow">
+		<Form client:load serviceId={serviceId} templateId={templateId} publicId={publicId} />
+		<div class="text-center mt-10">
+			<a href="/" class="underline md:hover:no-underline">トップページへ戻る</a>
+		</div>
+	</div>
 </Layout>
