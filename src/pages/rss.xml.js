@@ -3,7 +3,10 @@ import { getBlogs } from '../library/microcms'
 import { META_TITLE, META_DESCRIPTION } from './constants/meta'
 
 export const GET = async (context) => {
-    const posts = await getBlogs()
+    const posts = await getBlogs({
+        limit: 10,
+        orders: '-publishedAt',
+    })
 
     const rss = await getRssString({
         title: META_TITLE,
@@ -20,6 +23,7 @@ export const GET = async (context) => {
     return new Response(rss, {
         headers: {
             'Content-Type': 'application/xml',
+            'Cache-Control': 'max-age=3600',
         },
     })
 }
