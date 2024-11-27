@@ -16,7 +16,11 @@ export const GET = async (context) => {
             link: new URL(`blog/${post.id}`, context.site.href).href,
             title: post.title,
             description: `${post.description}...`,
-            pubDate: post.publishedAt,
+            pubDate: new Date(post.publishedAt).toLocaleDateString('ja-JP', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+            }),
             content: post.content,
         })),
     })
