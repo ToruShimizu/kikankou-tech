@@ -4,6 +4,8 @@ import Layout from '../layouts/Layout.astro'
 import { getBlogs } from '../library/microcms'
 import { convertEmoji } from '../utils/convertEmoji'
 import { META_DESCRIPTION, META_TITLE } from './constants/meta'
+import { ja } from 'date-fns/locale'
+import { format } from 'date-fns'
 const response = await getBlogs()
 ---
 
@@ -17,15 +19,9 @@ const response = await getBlogs()
 							<div class="text-5xl">{convertEmoji(content.thumbnail[0])}</div>
 							<div class="px-2 grid gap-1">
 								<span class="text-md font-semibold ">{content.title}</span>
-								<div class="text-xs text-gray-500">
-									<time datetime={new Date(content.publishedAt).toISOString()}>
-										{new Date(content.publishedAt).toLocaleDateString('ja-JP', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-										})}
-									</time>
-								</div>
+								<p class="text-xs text-gray-500">
+									{format(content.publishedAt, 'yyyy年MM月dd日', { locale: ja })}
+								</p>
 							</div>
 						</a>
 					</li>
