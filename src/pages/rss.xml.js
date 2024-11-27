@@ -28,5 +28,6 @@ export const GET = async (context) => {
                 content: sanitizeHtml(post.content),
             }
         }),
+        customData: `<language>ja</language>`,
     })
 }
