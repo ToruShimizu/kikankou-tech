@@ -3,8 +3,8 @@ import { getBlogs } from '../library/microcms'
 import { META_TITLE, META_DESCRIPTION } from './constants/meta'
 import { ja } from 'date-fns/locale'
 import { format } from 'date-fns'
-import sanitizeHtml from 'sanitize-html'
 
+const sanitizeHtml = require('sanitize-html')
 export const GET = async (context) => {
     const posts = await getBlogs({
         limit: 10,
