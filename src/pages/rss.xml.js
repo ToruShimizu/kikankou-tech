@@ -1,4 +1,4 @@
-import { getRssString } from '@astrojs/rss'
+import rss from '@astrojs/rss'
 import { getBlogs } from '../library/microcms'
 import { META_TITLE, META_DESCRIPTION } from './constants/meta'
 import { ja } from 'date-fns/locale'
@@ -10,7 +10,7 @@ export const GET = async (context) => {
         orders: '-publishedAt',
     })
 
-    const rss = await getRssString({
+    return rss({
         title: META_TITLE,
         description: META_DESCRIPTION,
         site: context.site,
@@ -27,11 +27,5 @@ export const GET = async (context) => {
                 content: post.content,
             }
         }),
-    })
-    return new Response(rss, {
-        headers: {
-            'Content-Type': 'application/xml',
-            'Cache-Control': 'max-age=3600',
-        },
     })
 }
