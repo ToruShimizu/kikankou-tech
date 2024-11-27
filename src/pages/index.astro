@@ -13,9 +13,9 @@ const description =
 	<main class="flex-grow mx-auto">
 		<ul class="flex justify-center flex-col gap-8">
 			{
-				response.contents.map((content: any) => (
+				response.contents.map((content) => (
 					<li>
-						<a href={content.id} class="md:hover:opacity-70 flex items-center gap-4">
+						<a href={`blog/${content.id}`} class="md:hover:opacity-70 flex items-center gap-4">
 							<div class="text-5xl">{convertEmoji(content.thumbnail[0])}</div>
 							<div class="px-2 grid gap-1">
 								<span class="text-md font-semibold ">{content.title}</span>

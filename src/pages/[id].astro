@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import { getBlogs, getBlogDetail, type Blog } from '../library/microcms'
-import { convertEmoji } from '../utils/convertEmoji'
+import Layout from '../../layouts/Layout.astro'
+import { getBlogs, getBlogDetail, type Blog } from '../../library/microcms'
+import { convertEmoji } from '../../utils/convertEmoji'
 // 詳細記事ページの全パスを取得
 export async function getStaticPaths() {
 	const response = await getBlogs({ fields: ['id'] })
