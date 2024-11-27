@@ -3,6 +3,7 @@ import { getBlogs } from '../library/microcms'
 import { META_TITLE, META_DESCRIPTION } from './constants/meta'
 import { ja } from 'date-fns/locale'
 import { format } from 'date-fns'
+import sanitizeHtml from 'sanitize-html'
 
 export const GET = async (context) => {
     const posts = await getBlogs({
@@ -24,7 +25,7 @@ export const GET = async (context) => {
                 title: post.title,
                 description: `${post.description}...`,
                 pubDate: date,
-                content: post.content,
+                content: sanitizeHtml(post.content),
             }
         }),
     })
