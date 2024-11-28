@@ -10,8 +10,8 @@ const response = await getBlogs()
 ---
 
 <Layout title={META_TITLE} description={META_DESCRIPTION}>
-	<main class="flex-grow mx-auto">
-		<ul class="flex justify-center flex-col gap-8 w-96 md:w-full">
+	<main class="flex-grow md:mx-auto">
+		<ul class="flex justify-center flex-col gap-8 w-full">
 			{
 				response.contents.map((content) => (
 					<li>
