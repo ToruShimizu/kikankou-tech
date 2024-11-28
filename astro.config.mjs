@@ -27,5 +27,6 @@ export default defineConfig({
             HTML: false,
             JavaScript: false,
         }),
+        (await import('@playform/inline')).default({ Critters: { fonts: false } }),
     ],
 })
