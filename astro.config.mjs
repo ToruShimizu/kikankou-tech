@@ -8,6 +8,8 @@ import tailwind from '@astrojs/tailwind'
 
 import react from '@astrojs/react'
 
+import playformCompress from '@playform/compress'
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://shimit-blog.com',
@@ -21,5 +23,6 @@ export default defineConfig({
         }),
         tailwind(),
         react(),
+        playformCompress(),
     ],
 })
