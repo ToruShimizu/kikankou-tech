@@ -33,6 +33,7 @@
         "typescript": "^5.7.2"
     },
     "devDependencies": {
+        "@playform/inline": "^0.1.0",
         "prettier": "^3.3.3",
         "prettier-plugin-astro": "^0.14.1"
     },
