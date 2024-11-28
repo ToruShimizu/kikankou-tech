@@ -10,8 +10,6 @@ import react from '@astrojs/react'
 
 import playformCompress from '@playform/compress'
 
-import playformInline from '@playform/inline'
-
 // https://astro.build/config
 export default defineConfig({
     site: 'https://shimit-blog.com',
@@ -26,6 +24,5 @@ export default defineConfig({
         tailwind(),
         react(),
         playformCompress(),
-        playformInline({ Critters: { fonts: false } }),
     ],
 })
