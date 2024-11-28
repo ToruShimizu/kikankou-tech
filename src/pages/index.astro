@@ -18,7 +18,7 @@ const response = await getBlogs()
 						<a href={`blog/${content.id}`} class="md:hover:opacity-70 flex items-center gap-4">
 							<div class="text-5xl">{convertEmoji(content.thumbnail[0])}</div>
 							<div class="px-2 grid gap-1">
-								<span class="text-md font-semibold ">{content.title}</span>
+								<span class="font-semibold ">{content.title}</span>
 								<p class="text-xs text-gray-500">
 									{format(content.publishedAt, 'yyyy年MM月dd日', { locale: ja })}
 								</p>
