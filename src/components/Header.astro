@@ -4,12 +4,11 @@ import Navigation from './Navigation.astro'
 ---
 
 <header class="p-4 grid gap-4">
-	<div class="flex justify-between">
-		<div class="text-xl font-semibold">シミティーブログ</div>
-		<div>
+	<div class="grid grid-cols-[1fr_2fr_1fr] items-center">
+		<div class="col-start-2 justify-self-center text-xl font-semibold">シミティーブログ</div>
+		<div class="col-start-3 justify-self-end">
 			<Hamburger />
 		</div>
 	</div>
 	<Navigation />
 </header>
-<style></style>
