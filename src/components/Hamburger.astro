@@ -7,6 +7,7 @@
 	if (hamburger) {
 		hamburger.addEventListener('click', () => {
 			const navLinks = document.querySelector('.nav-links')
+			hamburger.classList.toggle('active')
 			if (navLinks) {
 				navLinks.classList.toggle('expanded')
 			}
@@ -14,7 +15,43 @@
 	}
 </script>
 <div class="hamburger cursor-pointer md:hover:opacity-50">
-	{[...Array(3)].map(() => <span class="block w-8 h-1 mb-2 rounded-lg bg-gray-700" />)}
+	{
+		[...Array(3)].map((_, index) => (
+			<span
+				class={`block w-8 h-1 mb-2 rounded-lg bg-gray-700 transition-all duration-300 ease-in-out hamburger-bar-${index + 1}`}
+			/>
+		))
+	}
 </div>
 
-<style></style>
+<style>
+	/* ハンバーガーメニューのアニメーション */
+	.hamburger-bar-1,
+	.hamburger-bar-2,
+	.hamburger-bar-3 {
+		transform-origin: center;
+	}
+
+	.hamburger.active .hamburger-bar-1 {
+		transform: translateY(12px) rotate(45deg);
+	}
+
+	.hamburger.active .hamburger-bar-2 {
+		opacity: 0;
+	}
+
+	.hamburger.active .hamburger-bar-3 {
+		transform: translateY(-12px) rotate(-45deg);
+	}
+
+	/* ナビゲーションメニューのアニメーション */
+	.nav-links {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease-in-out;
+	}
+
+	.nav-links.expanded {
+		max-height: 200px;
+	}
+</style>
