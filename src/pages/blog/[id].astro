@@ -22,7 +22,6 @@ export async function getStaticPaths() {
 const { id } = Astro.params
 const blog = await getBlogDetail(id as string)
 const { previousId, nextId } = getBlogId(id)
-console.log(MAX_LENGTH)
 ---
 
 <Layout title={blog.title} description={blog.description}>
