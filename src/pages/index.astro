@@ -15,7 +15,10 @@ const response = await getBlogs()
 			{
 				response.contents.map((content) => (
 					<li>
-						<a href={`blog/${content.id}`} class="md:hover:opacity-70 flex items-center gap-4">
+						<a
+							href={`blog/${content.id}`}
+							class="md:hover:opacity-70 flex items-center gap-4 cursor-pointer"
+						>
 							<div class="text-5xl">{convertEmoji(content.thumbnail[0])}</div>
 							<div class="grid gap-1">
 								<h3 class="font-semibold text-gray-900">{content.title}</h3>
