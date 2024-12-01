@@ -10,6 +10,9 @@ const emojiMap = {
     muscle: '💪',
     eyes: '👀',
     mentor: '👨‍🏫',
+    handshake: '🤝',
+    thinking: '🤔',
+    direct_hit: '🎯',
 }
 
 export const convertEmoji = (text: string) => {
