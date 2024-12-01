@@ -3,6 +3,13 @@ const emojiMap = {
     book_2: '📗',
     book_3: '📘',
     book_4: '📙',
+    write: '✍️',
+    programmer: '👨‍💻',
+    memo: '📝',
+    palette: '🎨',
+    muscle: '💪',
+    eyes: '👀',
+    mentor: '👨‍🏫',
 }
 
 export const convertEmoji = (text: string) => {
