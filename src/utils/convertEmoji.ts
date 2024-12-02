@@ -13,6 +13,8 @@ const emojiMap = {
     handshake: '🤝',
     thinking: '🤔',
     direct_hit: '🎯',
+    man_construction_worker: '👷‍♂️',
+    wrench: '🔧',
 }
 
 export const convertEmoji = (text: string) => {
