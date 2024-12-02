@@ -24,7 +24,7 @@ const { title, description } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="flex flex-col min-h-screen">
+	<body class="flex flex-col min-h-screen" style="font-family: 'Noto Sans JP'">
 		<Header />
 		<slot />
 		<Footer />
@@ -35,21 +35,6 @@ const { title, description } = Astro.props
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-	}
-	html {
-		font-family: 'Noto Sans JP', system-ui, sans-serif;
-	}
-	code {
-		font-family:
-			'Noto Sans JP',
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
 	}
 	h1,
 	h2,
