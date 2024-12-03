@@ -1,0 +1,29 @@
+---
+interface Props {
+	totalCount: number
+	limit: number
+	currentPage: number
+}
+
+const { totalCount, limit, currentPage } = Astro.props
+const totalPages = Math.ceil(totalCount / limit)
+---
+
+<div class="flex justify-center gap-10 mt-6">
+	{
+		currentPage !== 1 && (
+			<a href={`?page=${currentPage - 1}`} class="underline md:hover:no-underline">
+				前へ
+			</a>
+		)
+	}
+	{
+		currentPage === totalPages ? (
+			<span>次へ</span>
+		) : (
+			<a href={`?page=${currentPage + 1}`} class="underline md:hover:no-underline">
+				次へ
+			</a>
+		)
+	}
+</div>

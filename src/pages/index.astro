@@ -6,31 +6,45 @@ import { convertEmoji } from '../utils/convertEmoji'
 import { META_DESCRIPTION, META_TITLE } from './constants/meta'
 import { ja } from 'date-fns/locale'
 import { format } from 'date-fns'
-const response = await getBlogs()
+import Pagination from '../components/Pagination.astro'
+
+const LIMIT = 6
+
+const currentPage = Astro.url.searchParams.get('page') || '1'
+
+const response = await getBlogs({ limit: LIMIT, offset: (Number.parseInt(currentPage, 10) - 1) * LIMIT })
 ---
 
 <Layout title={META_TITLE} description={META_DESCRIPTION}>
 	<main class="flex-grow md:mx-auto">
-		<ul class="flex justify-center flex-col gap-8 w-full">
-			{
-				response.contents.map((content) => (
-					<li>
-						<a
-							href={`blog/${content.id}`}
-							class="md:hover:opacity-70 flex items-center gap-4 cursor-pointer"
-						>
-							<div class="text-5xl">{convertEmoji(content.thumbnail[0])}</div>
-							<div class="grid gap-1">
-								<h3 class="font-semibold text-gray-900">{content.title}</h3>
-								<p class="text-xs text-gray-500">
-									{format(content.publishedAt, 'yyyy年MM月dd日', { locale: ja })}
-								</p>
-							</div>
-						</a>
-					</li>
-				))
-			}
-		</ul>
+		<div class="grid gap-20">
+			<div>
+				<ul class="flex justify-center flex-col gap-8 w-full">
+					{
+						response.contents.map((content) => (
+							<li>
+								<a href={`blog/${content.id}`} class="md:hover:opacity-70 flex items-center gap-4">
+									<div class="text-5xl">{convertEmoji(content.thumbnail[0])}</div>
+									<div class="grid gap-1">
+										<h3 class="font-semibold text-gray-900">{content.title}</h3>
+										<p class="text-xs text-gray-500">
+											{format(content.publishedAt, 'yyyy年MM月dd日', { locale: ja })}
+										</p>
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div>
+				<Pagination
+					totalCount={response.totalCount}
+					limit={response.limit}
+					currentPage={Number.parseInt(currentPage, 10)}
+				/>
+			</div>
+		</div>
 	</main>
 </Layout>
 <style>
