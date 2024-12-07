@@ -15,6 +15,7 @@ const emojiMap = {
     direct_hit: '🎯',
     man_construction_worker: '👷‍♂️',
     wrench: '🔧',
+    portfolio: '🗂️',
 }
 
 export const convertEmoji = (text: string) => {
