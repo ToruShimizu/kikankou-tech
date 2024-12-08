@@ -37,6 +37,6 @@ jobs:
               with:
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  projectName: shimit-blog.com
+                  projectName: shimit-blog
                   directory: ./dist
                   gitHubToken: ${{ secrets.GITHUB_TOKEN }}
