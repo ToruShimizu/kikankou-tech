@@ -5,7 +5,10 @@ on:
 
 jobs:
     deploy:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-20.04
+        permissions:
+            contents: read
+            deployments: write
         steps:
             - uses: actions/checkout@v4
             - uses: volta-cli/action@v4
