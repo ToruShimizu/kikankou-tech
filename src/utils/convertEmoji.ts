@@ -16,6 +16,12 @@ const emojiMap = {
     man_construction_worker: '👷‍♂️',
     wrench: '🔧',
     portfolio: '🗂️',
+    bag_1: '💼',
+    rocket: '🚀',
+    fire: '🔥',
+    sparkles: '✨',
+    party_popper: '🎉',
+    paperclip: '📎',
 }
 
 export const convertEmoji = (text: string) => {
