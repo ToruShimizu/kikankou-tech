@@ -22,6 +22,9 @@ const emojiMap = {
     sparkles: '✨',
     party_popper: '🎉',
     paperclip: '📎',
+    money_bag: '💰',
+    money_with_wings: '💸',
+    chart_increasing: '📈',
 }
 
 export const convertEmoji = (text: string) => {
