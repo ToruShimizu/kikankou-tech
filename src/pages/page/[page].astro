@@ -1,0 +1,81 @@
+---
+import { ja } from 'date-fns/locale'
+import { format } from 'date-fns'
+import { getBlogs, type Blog } from '../../library/microcms'
+import { META_DESCRIPTION, META_TITLE } from '../constants/meta'
+import Layout from '../../layouts/Layout.astro'
+import Pagination from '../../components/Pagination.astro'
+import { convertEmoji } from '../../utils/convertEmoji'
+
+export type Page = {
+	data: Blog[]
+	start: number
+	end: number
+	size: number
+	total: number
+	currentPage: number
+	lastPage: number
+	url: {
+		current: string
+		next?: string
+		prev: string
+		first: string
+		last?: string
+	}
+}
+
+type Props = {
+	page: Page
+}
+
+type GetStaticPaths = {
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	paginate: any
+}
+
+export const prerender = true
+// 詳細記事ページの全パスを取得
+export async function getStaticPaths({ paginate }: GetStaticPaths) {
+	const response = await getBlogs({ limit: 100 })
+	return paginate(response.contents, { pageSize: 6 })
+}
+
+const { page } = Astro.props
+
+const contents = page?.data as Blog[]
+---
+
+<Layout title={META_TITLE} description={META_DESCRIPTION}>
+	<main class="flex-grow md:mx-auto">
+		<div class="grid gap-20">
+			<div>
+				<ul class="flex justify-center flex-col gap-8 w-full">
+					{
+						contents.map((content) => (
+							<li>
+								<a href={`blog/${content.id}`} class="md:hover:opacity-70 flex items-center gap-4">
+									<div class="text-5xl">{convertEmoji(content.thumbnail[0])}</div>
+									<div class="grid gap-1">
+										<h3 class="font-semibold text-[#222]">{content.title}</h3>
+										<p class="text-xs text-gray-500">
+											{format(content.publishedAt, 'yyyy年MM月dd日', { locale: ja })}
+										</p>
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div>
+				<Pagination totalCount={page.total} limit={page.size} currentPage={page.currentPage} />
+			</div>
+		</div>
+	</main>
+</Layout>
+<style>
+	main {
+		padding: 1em;
+		max-width: 60ch;
+	}
+</style>

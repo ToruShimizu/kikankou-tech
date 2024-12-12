@@ -12,7 +12,7 @@ const totalPages = Math.ceil(totalCount / limit)
 <div class="flex justify-center gap-10 mt-6">
 	{
 		currentPage !== 1 && (
-			<a href={`?page=${currentPage - 1}`} class="underline md:hover:no-underline">
+			<a href={`/page/${currentPage - 1}`} class="underline md:hover:no-underline">
 				前へ
 			</a>
 		)
@@ -21,7 +21,7 @@ const totalPages = Math.ceil(totalCount / limit)
 		currentPage === totalPages ? (
 			<span>次へ</span>
 		) : (
-			<a href={`?page=${currentPage + 1}`} class="underline md:hover:no-underline">
+			<a href={`/page/${currentPage + 1}`} class="underline md:hover:no-underline">
 				次へ
 			</a>
 		)

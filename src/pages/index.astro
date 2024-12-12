@@ -38,11 +38,7 @@ const response = await getBlogs({ limit: LIMIT, offset: (Number.parseInt(current
 				</ul>
 			</div>
 			<div>
-				<Pagination
-					totalCount={response.totalCount}
-					limit={response.limit}
-					currentPage={Number.parseInt(currentPage, 10)}
-				/>
+				<Pagination totalCount={response.totalCount} limit={response.limit} currentPage={1} />
 			</div>
 		</div>
 	</main>
